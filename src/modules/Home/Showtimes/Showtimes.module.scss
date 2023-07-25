@@ -1,0 +1,188 @@
+@import "../../../assets/responsive";
+@import "../../../assets/breakpoints";
+
+$primaryFont: 'Roboto';
+$primaryColor: #0354a5;
+$secondaryColor: #fa5238;
+$borderColor: #cdcbcb;
+
+%ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.divCustom {
+    padding: 30px 20px 100px;
+}
+
+.showtimesContainer {
+    display: flex;
+    max-height: 670px;
+    padding: 0 !important;
+    background-color: white;
+    border: 1px solid $borderColor;
+    overflow-y: scroll;
+}
+
+.logoSize {
+    width: 70px;
+
+    @include responsive("smaller") {
+        width: 50px;
+    }
+}
+
+.logoBorder {
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        bottom: -15px;
+        height: 1px;
+        display: block;
+        background: rgba(202, 197, 197, 0.88);
+    }
+}
+
+.branchContainer {
+    width: 270px;
+    text-transform: uppercase;
+    font-family: $primaryFont;
+
+    &::after {
+        @extend .logoBorder;
+        width: 87%;
+        bottom: -3px;
+    }
+
+    @include responsive("large") {
+        width: 210px;
+    }
+}
+
+.branchList {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.branchName {
+    color: $primaryColor;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.00735em;
+    @extend %ellipsis;
+
+    @include responsive("smaller") {
+        font-size: 14px;
+    }
+}
+
+.branchAddress {
+    color: #757575;
+    font-weight: 400;
+    letter-spacing: 0.0075em;
+    @extend %ellipsis;
+
+    @include responsive("smaller") {
+        font-size: 14px;
+    }
+}
+
+.branchDetails {
+    color: $secondaryColor;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+
+    &:hover {
+        color: $secondaryColor;
+        transform: scale(1.1);
+    }
+}
+
+.movieList {
+    margin-bottom: 30px;
+    position: relative;
+    font-family: $primaryFont;
+
+    &::after {
+        @extend .logoBorder;
+        width: 90%;
+        bottom: -15px;
+        left: 30px;
+    }
+}
+
+.movieImg {
+    max-width: auto;
+    max-height: auto;
+}
+
+.movieIcon {
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    min-width: 33px;
+    background: $primaryColor;
+    text-align: center;
+    margin-right: 12px;
+    border-radius: 4px;
+
+    @include responsive("smaller") {
+        font-size: 14px;
+        min-width: 28px;
+        height: 20px;
+    }
+}
+
+.movieName {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-bottom: 8px;
+    letter-spacing: -0.00833em;
+
+    @include responsive("smaller") {
+        font-size: 19px;
+    }
+}
+
+.date {
+    border: 1px solid #e4e4e4 !important;
+    cursor: pointer;
+    margin: 0px 8px 13px 0px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: rgba(246, 246, 246, 0.5);
+    display: inline;
+    color: #108f3e;
+    font-size: 14px;
+
+    .time {
+        color: $secondaryColor;
+        font-size: 16px;
+        margin-bottom: 5px;
+        transition: all .3s;
+
+        @include responsive("smaller") {
+            font-size: 14px;
+        }
+    }
+
+    &:hover {
+        color: white;
+        background-color: rgba(127, 124, 124, 0.8);
+
+        .time {
+            color: white;
+        }
+    }
+
+    @include responsive("smaller") {
+        font-size: 12px;
+    }
+}
